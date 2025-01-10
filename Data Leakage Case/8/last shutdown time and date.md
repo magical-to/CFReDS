@@ -6,3 +6,5 @@ When was the last recorded shutdown date/time?<br><br>
 
 ![alt text](2.png)<br>
 Windows FILETIME (64 bit) 부분의 2015-03-25, 15:31:05이다.
+
+
