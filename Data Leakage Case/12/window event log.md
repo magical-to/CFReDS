@@ -10,4 +10,6 @@ Microsoft Message Analyzer, LPS(Log Parser Studio) 좀 오래된 도구들이긴
 ![alt text](1.png)<br>
 이번에는 WinHex로 분석 PC 이벤트 로그를 추출하기 위해서 %systemroot%\System32\winevt의 Logs 폴더를 추출 할 예정이다.(참고로 WinHex를 사용할 때, partition 관련 창이 보이지 않는다면, WinHex를 관리자 권한으로 실행했는지 확인해야한다.)<br><br>
 
-Microsoft message analyzer를 통해 해당 로그를 불러온 후 필터링을 한다.
+Microsoft message analyzer를 통해 해당 로그를 불러온 후 필터링을 한다.<br>
+
+![<alt text>](2.png)<br>
