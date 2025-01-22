@@ -86,6 +86,6 @@ deletelist.txt는 같이 업로드를 해주겠다.<br><br>
 
 ### 2015-03-23 16:06:05,256 -0400 INFO pid=2576 4004:LocalWatcher common.aggregator:114 --------> Received event RawEvent(DELETE, path=u'\\\\?\\C:\\Users\\informant\\Google Drive\\How to get started with Drive', time=1427141165.24, ino=281474976785723L, parent_ino=844424930207017L, affects_gdoc=False, is_cancelled=<RawEventIsCancelledFlag.FALSE: 0>, backup=<Backup.NO_BACKUP_CONTENT: (False, False)>) None
 
-<br><br>
+<br>
 이러한 코드들이 있다<br>
 How to get started with Drive, do_u_wanna_build_a_snow_man.mp3, happy_holiday.jpg라는 3가지 파일이 삭제된 기록이 남아있다.
