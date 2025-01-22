@@ -41,3 +41,11 @@ PC에서 클라우드 서비스의 흔적을 찾으려면 다음의 경로를 �
   - OneDrive: `HKEY_CURRENT_USER\Software\Microsoft\OneDrive`
 
 <br><br>
+
+![alt text](1.png)<br>
+우선 informant 사용자에는 Google Drive 폴더가 생성되어 있는 것으로 보아, 해당 서비스를 사용한 것으로 보인다.<br><br>
+
+![alt text](2.png)<br>
+ProgramData\Microsoft\Windows\Start Menu\Programs 위치에서도 Google Drive를 확인할 수 있고, 거기에 더해 iCloud도 볼 수 있다.<br><br>
+
+#27을 참고하여 lnk 파일을 분석하는 방법이 있다.<br><br>
