@@ -10,4 +10,4 @@ Identify traces related to confidential files stored in Thumbcache.
 
 Thumbnail Database Viewer(https://www.itsamples.com/thumbnail-database-viewer.html)<br><br>
 
-위 프로그램을 사용하여 썸네일을 직접 확인할 수도 있다.
+위 프로그램을 사용하여 썸네일을 눈으로 직접 확인할 수도 있다.<br><br>
