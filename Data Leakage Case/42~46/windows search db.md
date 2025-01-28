@@ -16,7 +16,7 @@ If it was enabled, what is a file path of the ‘Windows Search’ index databas
 경로는 다음과 같다.<br>
 C:\ProgramData\Microsoft\Search\Data\Applications\Windows\Windows.edb<br><br>
 
-![alt text](image.png)<br>
+![alt text](2.png)<br>
 레지스트리 경로는 다음과 같이 Microsoft\Windows Search\Databases\Windows에서<br>
 FileName의 Data의 Value 값이다.<br><br>
 
