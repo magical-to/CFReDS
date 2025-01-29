@@ -1,4 +1,4 @@
-6 문제 한 번에 풀어보자...<br><br>
+여섯 문제를 한 번에 풀어보자...<br><br>
 
 Was the ‘Windows Search and Indexing’ function enabled? How can you identify it?<br><br>
 
