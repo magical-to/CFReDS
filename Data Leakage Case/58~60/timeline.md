@@ -33,3 +33,11 @@
   용의자가 기밀 파일을 삭제했지만, 미사용 영역에 여전히 파일이 존재함<br><br>
 
 60. Create a visual diagram for a summary of results.<br><br>
+
+결과들을 요약하는 시각적인 다이어그램을 만들어라.<br><br>
+
+![alt text](image.png)<br><br><br><br><br>
+
+이렇게, Data Leakage Case 60문제를 마무리 하였다. 생각보다 시간이 오래 걸렸다. 하루에 3문제 정도 풀어서 그런 것 같다.<br><br>
+
+다음으로는, CFReDS의 Hacking Case를 시도해 볼 예정이다.
