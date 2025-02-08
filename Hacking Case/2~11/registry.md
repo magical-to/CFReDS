@@ -271,3 +271,14 @@ Windows 이벤트 뷰어에서 **부팅(시작), 종료(정상 종료/재부팅/
 Windows 종료 과정에서 이벤트 로그가 먼저 기록된 후,<br>
 커널이 마지막으로 ShutdownTime을 레지스트리에 기록하며,<br>
 이후 하드웨어 종료 단계에서 남은 몇 초 동안 차이가 발생할 수 있다.<br><br>
+
+9번 문제는 계정이 몇 개가 있는지 묻고 있다.<br>
+10번 문제는 컴퓨터를 주로 사용하는 사용자의 계정 이름을,<br>
+11번은 컴퓨터에 마지막으로 로그온 한 사용자를 묻고 있다.<br><br>
+
+기억을 거슬러 올라가서 6번을 참고하면,<br>
+HKLM\SAM\SAM\Domains\Account\Users - User accounts<br>
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon<br><br>
+
+에서 동일한 정보를 찾을 수 있다.
+답은 위 6번에서 올린 이미지를 참고하면 된다.
