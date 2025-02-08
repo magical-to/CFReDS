@@ -164,3 +164,110 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon<br><br>
 
 ![alt text](9.png)<br>
 DefaultDomainName의 Value 값은 N-1A9ODN6ZXK4LQ이다.<br><br>
+
+8번에서는 마지막으로 기록된 컴퓨터 종료 날짜/시간은 언제인가를 묻고 있다.<br>
+그렇기에, 컴퓨터 부팅과 종료에 관련된 레지스트리를 찾아보면 될 것 같다.<br><br>
+
+해당 레지스트리는 다음과 같다.<br>
+HKLM\SYSTEM\ControlSet001\Control\Windows - ShutdownTime<br>>
+HKLM\Software\Microsoft\WindowNT\CurrentVersion\Prefetcher\ExitTime<br>
+Windows xp: C:\Windows\System32\system32\Config<br>
+Windows 7, 10: C:\Windows\System32\winevt\Logs<br><br>
+
+![alt text](10.png)<br>
+우선 ShutdownTime의 Value 값을 찾아냈다.<br><br>
+
+# Windows 레지스트리 ShutdownTime 값 변환
+
+Windows 레지스트리의 `ShutdownTime` 값은 **Windows FILETIME** 형식(UTC 기준)으로 저장됩니다.  
+주어진 `ShutdownTime` 값을 변환하는 Python 코드:
+
+```python
+import struct
+import datetime
+
+# 주어진 ShutdownTime 값 (리틀 엔디안 순서)
+shutdown_time_hex = "C4FC00074D8CC401"
+
+# 바이트 순서를 맞춰 변환 (리틀 엔디안 -> 빅 엔디안)
+shutdown_time_bytes = bytes.fromhex(shutdown_time_hex)
+shutdown_time_int = struct.unpack("<Q", shutdown_time_bytes)[0]
+
+# Windows FILETIME 기준 (1601-01-01)에서 경과된 100ns 단위 시간 변환
+filetime_epoch = datetime.datetime(1601, 1, 1, tzinfo=datetime.timezone.utc)
+shutdown_datetime = filetime_epoch + datetime.timedelta(microseconds=shutdown_time_int / 10)
+
+# 변환된 시간 출력
+shutdown_datetime
+```
+
+<br<br>>
+그렇게 해서, 주어진 ShutdownTime 값은 2004년 8월 27일 10시 46분 33초 (UTC 기준)이다.<br><br>
+
+레지스트리로 찾아봤으니, 윈도우 이벤트 로그를 이용해 보자.<br><br>
+
+![alt text](11.png)<br>
+이 친구를 우클릭을 하여 Open in External Viewer 옵션을 통해 이벤트 뷰어로 연다.<br><br>
+
+![alt text](12.png)<br>
+이런 식으로 창이 뜨게 된다.<br><br>
+
+# Windows 이벤트 뷰어에서 부팅 및 종료 로그 찾기
+
+Windows 이벤트 뷰어에서 **부팅(시작), 종료(정상 종료/재부팅/예기치 않은 종료)** 관련 로그를 확인하려면 아래 이벤트 ID를 필터링하면 됩니다.
+
+---
+
+## 🔹 시스템 부팅 및 종료 관련 이벤트 ID
+
+| 이벤트 ID | 설명                                                |
+| --------- | --------------------------------------------------- |
+| **6005**  | Windows 이벤트 로그 서비스가 시작됨 (**부팅 완료**) |
+| **6006**  | Windows 이벤트 로그 서비스가 종료됨 (**정상 종료**) |
+| **6008**  | 예기치 않은 종료 (블루스크린, 정전, 강제 종료 등)   |
+| **6013**  | 시스템 가동 시간(업타임)                            |
+| **1074**  | 사용자/프로세스에 의해 시스템이 종료되거나 재부팅됨 |
+| **1076**  | 이전 시스템 종료 이유 기록 (6008과 함께 확인)       |
+
+---
+
+## 🖥 부팅 관련 이벤트
+
+- **6005** : `"이벤트 로그 서비스가 시작되었습니다."` → **부팅 성공**
+- **6013** : 시스템이 마지막으로 얼마나 가동되었는지 (**업타임**)
+
+---
+
+## ⚡ 정상 종료 관련 이벤트
+
+- **1074** : 시스템이 정상적으로 종료됨 (사용자 또는 소프트웨어에 의해 종료됨)
+  - 예시: `"사용자 XXX에 의해 시스템이 종료됨"`
+  - `"Windows Update에 의해 시스템이 다시 시작됨"`
+- **6006** : `"이벤트 로그 서비스가 종료되었습니다."` → **정상 종료**
+
+---
+
+## 🔥 비정상 종료 관련 이벤트
+
+- **6008** : **예기치 않은 종료** (블루스크린, 정전, 강제 종료 등)
+  - `"이전 시스템 종료는 예기치 않게 수행되었습니다."`
+- **1076** : **이전 종료의 원인 기록** (관리자가 기록하는 경우)
+
+---
+
+<br><br>
+
+그리하... 6006과 6008을 필터로 걸 예정이다.<br><br>
+
+![alt text](13.png)<br>
+위와 같이 필터를 걸게 되면,<br><br>
+
+![alt text](14.png)<br>
+2004년 08월 28일 오전 12시 46분 28초라는 값이 나오게 되는데, 해당 값은 KST 기준이고<br>
+구해야 하는 값은 Central Time 기준이기에, Central Time 기준으로 바꾸면<br>
+2004년 8월 27일 오전 10시 46분 28초이다.<br>
+레지스트리로 구한 2004년 8월 27일 10시 46분 33초와 5초 정도 차이가 나는 것을 확인할 수 있었다.<br><br>
+
+Windows 종료 과정에서 이벤트 로그가 먼저 기록된 후,<br>
+커널이 마지막으로 ShutdownTime을 레지스트리에 기록하며,<br>
+이후 하드웨어 종료 단계에서 남은 몇 초 동안 차이가 발생할 수 있다.<br><br>
