@@ -65,3 +65,60 @@ Autopsy를 사용하고 있다면, Result -> Operating System Information -> Own
 
 ![alt text](5.png)<br>
 위 사진을 참고하면 된다.<br><br>
+
+6번 문제에서는 컴퓨터 계정 이름을 묻고 있다.<br>
+5번 문제에서 물어본 등록된 소유자와는 다르다. 명령 프롬프트를 통해 확인할 수 있는 계정이다.<br><br>
+
+# 컴퓨터 계정 이름과 등록된 소유자의 차이
+
+## 1. **컴퓨터 계정 이름 (User Account Name)**
+
+- 사용자가 Windows 또는 macOS 같은 운영체제에 로그인할 때 사용하는 계정 이름
+- **종류**:
+  - **로컬 계정(Local Account)**: 인터넷 없이 PC에서만 사용되는 계정
+  - **마이크로소프트 계정(Microsoft Account)**: 클라우드 동기화 및 스토어 이용이 가능한 온라인 계정
+  - **관리자 계정(Administrator)**: 시스템 설정 변경 권한이 있는 계정
+  - **게스트 계정(Guest Account)**: 제한된 권한만 가진 임시 계정
+- **확인 방법 (Windows 기준)**:
+  - `Win + R` → `cmd` → `whoami` 입력
+  - 또는 **제어판** → **사용자 계정**에서 확인
+
+---
+
+## 2. **등록된 소유자 (Registered Owner)**
+
+- Windows 설치 시 입력된 **소유자 정보**
+- 주로 초기 설정 단계에서 입력되며, Windows의 라이선스를 등록한 개인 또는 회사의 이름으로 표시됨
+- 일부 프로그램에서 사용자의 소유자로 표시될 수 있음
+- **확인 방법**:
+  - `Win + R` → `regedit` 실행 (레지스트리 편집기)
+  - `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion`
+  - `"RegisteredOwner"` 값 확인
+- **변경 방법**:
+  - 위 레지스트리에서 `"RegisteredOwner"` 값을 원하는 이름으로 변경 가능
+
+---
+
+## 3. **주요 차이점**
+
+| 구분               | 컴퓨터 계정 이름                    | 등록된 소유자                          |
+| ------------------ | ----------------------------------- | -------------------------------------- |
+| **역할**           | OS 로그인 및 사용 권한 관리         | Windows 설치 시 등록된 소유자 이름     |
+| **사용 목적**      | 파일 접근, 프로그램 실행, 보안 관리 | 시스템 정보에서 소유자로 표시됨        |
+| **위치**           | `C:\Users\계정이름` (사용자 폴더)   | Windows 레지스트리 (`RegisteredOwner`) |
+| **변경 가능 여부** | 가능 (새 계정 생성, 이름 변경)      | 가능 (레지스트리 편집 필요)            |
+
+---
+
+<br><br>
+
+해당 정보를 남기는 레지스트리의 위치는 다음과 같다.<br>
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\profilelist<br><br>
+
+![alt text](6.png)<br>
+S-1-5-18은 System Profiles을 나타내며, 19는 Local Service, 20은 Network Service를 나타낸다.<br><br>
+
+위 경로가 아닌, HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users 경로에서도 확인 가능하다.<br><br>
+
+![alt text](7.png)<br>
+악마가 계정 이름이라니 ㄷㄷ..<br><br>
