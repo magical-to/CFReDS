@@ -42,3 +42,12 @@ Windows NT에서 찾아야 하는데 Windows 눌러놓고 헤맸다;<br><br>
 
 이를 10진수로 바꾸게 되면, 1092955707이 되며 시간 형태로 바꾸게 되면,<br>
 2004년 8월 20일 16시 48분 27초 (KST)이다.<br><br>
+
+4번에서는 시간대 설정이 어떻게 되어있는가를 묻고 있다.<br><br>
+
+Timezone은 3번 문제에서도 알 수 있듯이,<br>
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\TimeZoneInformation<br>
+해당 레지스터에서 확인이 가능하다.<br><br>
+
+![alt text](image.png)<br>
+위 사진이 해당 경로이며, 시간대 설정이 Central Standard Time으로 되어있는 것을 확인할 수 있었다.<br><br>
