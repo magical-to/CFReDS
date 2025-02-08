@@ -49,5 +49,19 @@ Timezone은 3번 문제에서도 알 수 있듯이,<br>
 HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\TimeZoneInformation<br>
 해당 레지스터에서 확인이 가능하다.<br><br>
 
-![alt text](image.png)<br>
+![alt text](3.png)<br>
 위 사진이 해당 경로이며, 시간대 설정이 Central Standard Time으로 되어있는 것을 확인할 수 있었다.<br><br>
+
+5번 문제에서는 등록된 소유자를 묻고 있다.<br><br>
+
+해당 문제에서 말하는 등록된 소유자는 컴퓨터를 설치할 때 입력한 사용자를, Windows 키를 누르면 나오는 사용자명을 말하는 것 같다.<br><br>
+
+해당 정보가 남는 레지스트리는 다음과 같다.<br>
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion<br><br>
+
+![alt text](4.png)<br>
+위 사진에서 확인할 수 있듯이, Greg Schardt 씨가 주인이다.<br>
+Autopsy를 사용하고 있다면, Result -> Operating System Information -> Owner에서도 확인할 수 있다.<br><br>
+
+![alt text](5.png)<br>
+위 사진을 참고하면 된다.<br><br>
