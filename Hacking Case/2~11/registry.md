@@ -122,3 +122,45 @@ S-1-5-18은 System Profiles을 나타내며, 19는 Local Service, 20은 Network 
 
 ![alt text](7.png)<br>
 악마가 계정 이름이라니 ㄷㄷ..<br><br>
+
+7번은 기본 도메인 이름을 묻고 있다.<br><br>
+
+# PC에서 도메인의 정의
+
+## 1. **도메인(Domain) 개념**
+
+- 네트워크 환경에서 **중앙 서버(도메인 컨트롤러, DC)**가 관리하는 사용자 그룹 또는 컴퓨터 그룹
+- 기업, 학교, 기관 등에서 **사용자 계정, 보안 정책, 리소스 접근**을 중앙에서 통합 관리하기 위해 사용됨
+
+## 2. **도메인의 특징**
+
+- **사용자 인증 (로그인 관리)**: Active Directory(AD) 서버를 통해 계정 인증
+- **리소스 공유**: 같은 도메인 내에서 파일, 프린터, 네트워크 리소스 공유 가능
+- **정책 적용**: 그룹 정책(GPO)을 통해 보안 및 설정 일괄 적용 가능
+- **이동성**: 사용자는 여러 PC에서 같은 계정을 사용하여 로그인 가능
+
+## 3. **도메인과 로컬 계정의 차이**
+
+| 구분            | 도메인 계정                  | 로컬 계정             |
+| --------------- | ---------------------------- | --------------------- |
+| **관리 주체**   | 중앙 서버(AD)                | 개별 PC               |
+| **사용자 인증** | 네트워크 로그인              | 로컬 로그인           |
+| **데이터 저장** | 서버에서 계정 및 데이터 관리 | PC 내부에 데이터 저장 |
+| **보안 정책**   | 그룹 정책(GPO) 적용 가능     | 개별 설정 필요        |
+
+## 4. **도메인 확인 방법 (Windows)**
+
+- `Win + R` → `cmd` → `whoami /upn` 또는 `systeminfo | findstr /B /C:"Domain"`
+- **설정 경로**: `제어판` → `시스템 및 보안` → `시스템` → **도메인 정보 확인**
+
+<br><br>
+
+도메인 관련 정보를 확인할 수 있는 레지스트리는 다음과 같다.<br>
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Tcpip\Parameters - Domain<br>
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon<br><br>
+
+![alt text](8.png)<br>
+첫 번째 레지스트리는 비어 있었다.<br><br>
+
+![alt text](9.png)<br>
+DefaultDomainName의 Value 값은 N-1A9ODN6ZXK4LQ이다.<br><br>
