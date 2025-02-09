@@ -1,11 +1,12 @@
 # **CFReDS 문제 풀이**
 
-## **Data Leakage Case**  
+## **Data Leakage Case**
+
 **The purpose of this work is to learn various types of data leakage, and practice its investigation techniques.**
 
 ---
 
-### **Scenario Overview**  
+### **Scenario Overview**
 
 ‘Iaman Informant’ was working as a manager of the technology development division at a famous international company OOO that developed state-of-the-art technologies and gadgets.
 
@@ -18,6 +19,7 @@ After receiving the sample data, ‘Mr. Conspirator’ asked for the direct deli
 At the security checkpoint, although his devices (a USB memory stick and a CD) were briefly checked (protected with portable write blockers), there was no evidence of any leakage. And then, they were immediately transferred to the digital forensics laboratory for further analysis.
 
 ### **Company Information Security Policies**
+
 - Confidential electronic files should be stored and kept in the authorized external storage devices and the secured network drives.
 - Confidential paper documents and electronic files can be accessed only within the allowed time range from **10:00 AM to 16:00 PM** with the appropriate permissions.
 - **Non-authorized electronic devices** such as laptops, portable storages, and smart devices **cannot be carried** onto the company.
@@ -30,18 +32,20 @@ In addition, although the company managed **separate internal and external netwo
 
 ---
 
-## **Hacking Case**  
+## **Hacking Case**
+
 **Find any hacking software, evidence of their use, and any data that might have been generated. Attempt to tie the computer to the suspect, G=r=e=g S=c=h=a=r=d=t.**
 
 ---
 
-### **Scenario**  
+### **Scenario**
 
-On **09/20/04**, a **Dell CPi notebook computer**, serial # **VLQLW**, was found abandoned along with a **wireless PCMCIA card** and an **external homemade 802.11b antenna**. It is suspected that this computer was used for **hacking purposes**, although it cannot be tied to a hacking suspect, **G=r=e=g S=c=h=a=r=d=t**. (The equal signs are just to prevent web crawlers from indexing this name; there are no equal signs in the image files.)  
+On **09/20/04**, a **Dell CPi notebook computer**, serial # **VLQLW**, was found abandoned along with a **wireless PCMCIA card** and an **external homemade 802.11b antenna**. It is suspected that this computer was used for **hacking purposes**, although it cannot be tied to a hacking suspect, **G=r=e=g S=c=h=a=r=d=t**. (The equal signs are just to prevent web crawlers from indexing this name; there are no equal signs in the image files.)
 
 **Schardt also goes by the online nickname of “Mr. Evil”** and some of his associates have said that he would **park his vehicle within range of Wireless Access Points** (like Starbucks and other T-Mobile Hotspots), where he would then **intercept internet traffic**, attempting to **get credit card numbers, usernames & passwords.**
 
 ### **Objectives**
+
 - **Find any hacking software**
 - **Identify evidence of their use**
 - **Recover any data that might have been generated**
