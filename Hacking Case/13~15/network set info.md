@@ -20,3 +20,13 @@ Compaq WL110 Wireless LAN PC Card 하나,<br><br>
 ![alt text](2.png)<br>
 Xircom CardBus Ethernet 100 + Modem 56 (Ethernet Interface)<br>
 하나 해서, 총 2가지를 찾을 수 있었다.<br><br>
+
+14번 문제에 접근하기 위해, 네트워크 설정 관련 레지스트리를 방문해보았지만,<br>
+![alt text](image.png)<br>
+위 사진과 같이 IP 주소가 확인되지 않고 있다.<br><br>
+
+![alt text](4.png)<br>
+그러나, Controlset001이 아닌 Controlset002의 같은 경로에서는 IP 주소를 획득할 수 있었다.<br><br>
+
+![alt text](5.png)<br>
+둘의 차이점을 간단하게 정리해보았다.<br><br>
