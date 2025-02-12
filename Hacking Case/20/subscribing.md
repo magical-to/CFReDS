@@ -7,4 +7,4 @@ List 5 newsgroups that Mr. Evil has subscribed to?<br>
 C:\Documents and Settings\사용자명\Local Settings\Application Data\Identities\{랜덤 ID}\Microsoft\Outlook Express\<br><br>
 
 ![alt text](1.png)<br>
-바로 이곳이다! 참고로 밑에 더 있으니 5개만 고르면 된다~
+바로 이곳이다! 참고로 밑에 더 있으니 5개만 고르면 된다~<br>
