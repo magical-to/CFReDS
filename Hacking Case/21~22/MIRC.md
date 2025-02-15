@@ -14,3 +14,7 @@ mIRC 폴더의 위치는 Program Files\mIRC와 같다.<br>
 22. This IRC program has the capability to log chat sessions. List 3 IRC channels that the user of this computer accessed.<br><br>
 
 이 IRC 프로그램은 채팅 세션을 기록하는 기능을 가지고 있는데, 이 컴퓨터 사용자가 접속한 IRC 채널 3개를 나열하라는 문제이다.<br><br>
+
+![alt text](3.png)
+21번 문제에서 확인했던 mIRC 폴더에는 logs가 존재한다.<br>
+해당 폴더를 확인해보면 IRC 채널들이 나온다. 3개 고르면 된다.<br>
