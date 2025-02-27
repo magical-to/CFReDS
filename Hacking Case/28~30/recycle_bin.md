@@ -106,4 +106,4 @@
 https://abelcheung.github.io/rifiuti2/<br>
 윈도우 휴지통 분석 프로그램이다.ㅋㅋㅋ<br><br>
 
-사용법은 간단하다. INFO2 파일을 추출한 뒤, rifiuti.exe -o output INFO2 명령어를 사용하며 된다.
+사용법은 간단하다. INFO2 파일을 추출한 뒤, rifiuti.exe -o output INFO2 명령어를 사용하면 된다.
