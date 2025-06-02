@@ -1,6 +1,6 @@
 Identify directory/file paths related to the web browser history.<br><br>
 
-웹 브라우저 기록과 연관된 directory나 파이르이 경로를 묻고있다.<br><br>
+웹 브라우저 기록과 연관된 directory나 파일의 경로를 묻고있다.<br><br>
 
 확인해 볼 것들은 3가지 정도가 있다.<br>
 첫 번째로, 인터넷 사용 기록<br>
